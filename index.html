@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>allai · 个人 AI 工作台</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#e7eaf3;background:#10131c;color-scheme:dark}*{box-sizing:border-box}body{margin:0}main{max-width:1000px;margin:auto;padding:48px 24px}header{margin-bottom:36px}h1{font-size:42px;letter-spacing:-2px;margin:0}h1 span{color:#a89aff}p{color:#a9b1c6;line-height:1.7}.layout{display:grid;grid-template-columns:1fr 1fr;gap:24px}section{background:#1a1f2d;border:1px solid #30374a;border-radius:16px;padding:24px}h2{margin-top:0;font-size:20px}label{display:block;margin:16px 0 8px}input,select,textarea,button{font:inherit;border-radius:8px;border:1px solid #414b65;padding:12px}input,select,textarea{width:100%;background:#111622;color:#e7eaf3}textarea{resize:vertical;min-height:160px}button{background:#a89aff;color:#111622;cursor:pointer}button.secondary{background:transparent;color:#e7eaf3}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #c9bfff;outline-offset:3px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}article{border-top:1px solid #30374a;padding:16px 0}article h3{margin:0 0 8px;font-size:16px}article p{white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0;font-size:14px}.meta{font-size:12px;color:#a9b1c6}#status{min-height:24px;color:#c9bfff}footer{margin-top:24px;font-size:13px;color:#a9b1c6}@media(max-width:700px){.layout{grid-template-columns:1fr}main{padding:28px 16px}}
+</style>
+<main>
+<header><h1>all<span>ai</span></h1><p>把想法整理成好问题，把 AI 变成日常工具。</p></header>
+<div class="layout">
+<section aria-labelledby="compose"><h2 id="compose">准备一个任务</h2>
+<label for="template">从模板开始</label><select id="template"><option value="blank">自由创作</option><option value="learn">学习新知识</option><option value="write">改进表达</option><option value="plan">拆解计划</option><option value="code">排查代码问题</option></select>
+<label for="title">任务名称</label><input id="title" maxlength="120" placeholder="例如：理解一个新概念">
+<label for="prompt">提示词</label><textarea id="prompt" placeholder="描述你的目标、背景和期望的输出…"></textarea>
+<div class="actions"><button id="save">保存任务</button><button id="copy" class="secondary">复制提示词</button></div><p id="status" role="status" aria-live="polite"></p>
+</section>
+<section aria-labelledby="library"><h2 id="library">我的任务库</h2><label for="search">搜索任务</label><input id="search" type="search" placeholder="搜索名称或提示词"><div id="tasks"></div><div class="actions"><button id="export" class="secondary">导出备份</button></div></section>
+</div><footer>内容仅保存在当前浏览器。复制提示词后，可粘贴到你常用的 AI 工具；此版本不会调用模型或上传内容。清除浏览器数据会删除任务，请定期导出备份。</footer>
+</main>
+<script src="app.js"></script>
+</html>
